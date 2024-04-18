@@ -29,9 +29,17 @@ public class ProductoParaVender extends Producto {
         return this.getPrecio() * this.cantidad;
     }
 
+    // con testing, agregue la validacion
     public void setCantidad(Float cantidad){
         if (cantidad>=0){
-        this.cantidad=cantidad;
+            this.cantidad=cantidad;
         }
     }
+
+    public Float precioEncuotas(int cuotas){
+        return getPrecio()/cuotas;
+    }
+
+    
+    
 }

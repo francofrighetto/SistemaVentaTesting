@@ -30,7 +30,6 @@ public class Producto {
     @Min(value = 0, message = "La existencia mínima es 0")
     private Float existencia;
 
-
     public Producto(String nombre, String codigo, Float precio, Float existencia, Integer id) {
         this.nombre = nombre;
         this.codigo = codigo;
@@ -46,7 +45,8 @@ public class Producto {
         this.existencia = existencia;
     }
 
-    public Producto(@NotNull(message = "Debes especificar el código") @Size(min = 1, max = 50, message = "El código debe medir entre 1 y 50") String codigo) {
+    public Producto(
+            @NotNull(message = "Debes especificar el código") @Size(min = 1, max = 50, message = "El código debe medir entre 1 y 50") String codigo) {
         this.codigo = codigo;
     }
 
@@ -72,7 +72,11 @@ public class Producto {
     }
 
     public void setPrecio(Float precio) {
+        // if (precio >= 0) {
+        //     this.precio = precio;
+        // }
         this.precio = precio;
+
     }
 
     public Float getExistencia() {
