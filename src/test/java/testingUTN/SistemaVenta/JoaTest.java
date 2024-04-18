@@ -18,50 +18,23 @@ Test sobre la clase: Producto
 
     Resultado esperado: false
 */
-
+/*  Testeamos un flujo normal*/
 @SuppressWarnings("unused")
 @SpringBootTest
 public class JoaTest {
 
-    /*Se crea un objeto de la clase Producto con un nombre, descripción y existencia inicial de cero. */
-
-    Producto producto;
-
-    @BeforeEach
-    public void setUp() {
-        // Crear un nuevo producto antes de cada prueba
-        producto = new Producto("Joa", "123", 50.0f, 10f);
-    }
+    /* Testeamos un flujo normal */
     @Test
-    public void testConExistencia() {
-        imprimirExistencia();
-        assertTrue(producto.sinExistencia());
-    }
-
-    @Test
-    public void testSinExistencia() {
-        imprimirExistencia();
+    public void testSinExistencia_FlujoNormal() {
+        Producto producto = new Producto("Joa", "123", 10.0f, 20.0f);
         assertFalse(producto.sinExistencia());
     }
 
+    /* Testeamos un flujo alternativo */
     @Test
-    public void testAumentarExistencia() {
-        imprimirExistencia();
-        producto.setExistencia(10f);
-        imprimirExistencia();
-        assertFalse(producto.sinExistencia());
-    }
-
-    @Test
-    public void testDisminuirExistencia() {
-        imprimirExistencia();
-        producto.setExistencia(5.0f);
-        imprimirExistencia();
+    public void testSinExistencia_FlujoAlternativo() {
+        Producto producto = new Producto("Joa", "123", 10.0f, 0.0f);
         assertTrue(producto.sinExistencia());
     }
 
-    // Método para imprimir la existencia del producto
-    private void imprimirExistencia() {
-        System.out.println("Existencia actual: " + producto.getExistencia());
-    }
 }
