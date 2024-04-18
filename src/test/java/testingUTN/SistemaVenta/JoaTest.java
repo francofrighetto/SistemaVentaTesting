@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -22,32 +23,45 @@ Test sobre la clase: Producto
 @SpringBootTest
 public class JoaTest {
 
-    Producto producto = new Producto("Joa", "Joa", 0.0f, 0.0f);
+    /*Se crea un objeto de la clase Producto con un nombre, descripción y existencia inicial de cero. */
 
+    Producto producto;
+
+    @BeforeEach
+    public void setUp() {
+        // Crear un nuevo producto antes de cada prueba
+        producto = new Producto("Joa", "123", 50.0f, 10f);
+    }
     @Test
     public void testConExistencia() {
+        imprimirExistencia();
         assertTrue(producto.sinExistencia());
-
-
     }
 
     @Test
     public void testSinExistencia() {
+        imprimirExistencia();
         assertFalse(producto.sinExistencia());
     }
 
-    /*pruebo aumentando la existencia */
-    
     @Test
-    public void testAumentarExistencia(){
+    public void testAumentarExistencia() {
+        imprimirExistencia();
         producto.setExistencia(10f);
+        imprimirExistencia();
         assertFalse(producto.sinExistencia());
     }
 
-    @ParameterizedTest
-    @ValueSource(floats = {10f, -5f, -10f,84.2f})
-    public void testAumentarExistenciaParametrizado(Float distintosValores){
-        producto.setExistencia(10f);
-        assertFalse(producto.sinExistencia());
+    @Test
+    public void testDisminuirExistencia() {
+        imprimirExistencia();
+        producto.setExistencia(5.0f);
+        imprimirExistencia();
+        assertTrue(producto.sinExistencia());
+    }
+
+    // Método para imprimir la existencia del producto
+    private void imprimirExistencia() {
+        System.out.println("Existencia actual: " + producto.getExistencia());
     }
 }

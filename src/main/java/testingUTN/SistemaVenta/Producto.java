@@ -54,6 +54,8 @@ public class Producto {
     }
 
     public boolean sinExistencia() {
+        /*impmir */
+        System.out.println(this.existencia);
         return this.existencia <= 0;
     }
 
