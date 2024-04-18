@@ -1,4 +1,5 @@
 package testingUTN.SistemaVenta;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -26,15 +27,21 @@ public class JoaTest {
     /* Testeamos un flujo normal */
     @Test
     public void testSinExistencia_FlujoNormal() {
-        Producto producto = new Producto("Joa", "123", 10.0f, 20.0f);
+        Producto producto = new Producto("Joa", "123", 10.0f, 20.0f, 5);
         assertFalse(producto.sinExistencia());
     }
 
     /* Testeamos un flujo alternativo */
     @Test
     public void testSinExistencia_FlujoAlternativo() {
-        Producto producto = new Producto("Joa", "123", 10.0f, 0.0f);
+        Producto producto = new Producto("Joa", "123", 10.0f, 0.0f, 5);
         assertTrue(producto.sinExistencia());
+    }
+    /* testeamos un flujo normal para existencia */
+    @Test
+    public void testExistencia_FlujoNormal() {
+        Producto producto = new Producto("Joa", "123", 10.0f, 20.0f, 5);
+        assertEquals(20.0f, producto.getExistencia());
     }
 
 }
