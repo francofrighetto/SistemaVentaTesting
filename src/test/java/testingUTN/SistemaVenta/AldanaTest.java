@@ -29,8 +29,36 @@ public class AldanaTest {
         assertEquals(totalEsperado, totalReal);
     }
 
+    @Test // Testeamos flujo alternativo: cantidad cero
+    public void testGetTotal_CantidadCero() {
+        Venta venta = new Venta();
+        Float cantidad = 0.0f;                              // Cantidad Cero
+        Float precio = 10.0f;
+        ProductoVendido producto = new ProductoVendido(cantidad, precio, "ProductoTest", "123", venta);
+        Float totalEsperado = 0.0f;                         // resultado: 0
+        Float totalReal = producto.getTotal();              // deberia ser 0 tambien
+        assertEquals(totalEsperado, totalReal);
+    }
 
+    @Test // Testeamos flujo alternativo: precio cero
+    public void testGetTotal_PrecioCero() {
+        Venta venta = new Venta();
+        Float cantidad = 5.0f;                              
+        Float precio = 0.0f;                                // Precio Cero
+        ProductoVendido producto = new ProductoVendido(cantidad, precio, "ProductoTest", "123", venta);
+        Float totalEsperado = 0.0f;                         // resultado: 0
+        Float totalReal = producto.getTotal();              // deberia ser 0 tambien
+        assertEquals(totalEsperado, totalReal);
+    }
 
-
-
+    @Test // Testeamos flujo alternativo: cantidad negativa
+    public void testGetTotal_CantidadNegativa() {
+        Venta venta = new Venta();
+        Float cantidad = -5.0f;                              // Cantidad Negativa
+        Float precio = 10.0f;                                
+        ProductoVendido producto = new ProductoVendido(cantidad, precio, "ProductoTest", "123", venta);
+        Float totalEsperado = 0.0f;                         // resultado: 0  (para una cantidad negativa, el total deberia ser cero)
+        Float totalReal = producto.getTotal();              // deberia ser 0 tambien
+        assertEquals(totalEsperado, totalReal);
+    }
 }
