@@ -30,6 +30,8 @@ public class ProductoParaVender extends Producto {
     }
 
     public void setCantidad(Float cantidad){
+        if (cantidad>=0){
         this.cantidad=cantidad;
+        }
     }
 }
