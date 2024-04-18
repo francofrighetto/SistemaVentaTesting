@@ -19,9 +19,9 @@ Test sobre la clase: Producto
 
     Resultado esperado: false
 */
+
 /*  Testeamos un flujo normal*/
-@SuppressWarnings("unused")
-@SpringBootTest
+@SpringBootApplication
 public class JoaTest {
 
     /* Testeamos un flujo normal */
