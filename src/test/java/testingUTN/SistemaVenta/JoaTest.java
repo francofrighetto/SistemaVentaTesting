@@ -26,7 +26,7 @@ Test sobre la clase: Producto
 @SpringBootApplication
 public class JoaTest {
 
-    /*Este método de prueba crea un objeto Producto con una determinada cantidad de stock (20.0f) y comprueba que el método sinExistencia() devuelve false.  */
+    /*Este método de prueba crea un objeto Producto con una determinada cantidad de stock (20.0f) y comprueba que el método sinExistencia().  */
     /*Este método prueba un flujo normal donde el producto tiene stock. */
     @Test
     public void testSinExistencia_FlujoNormal() {
