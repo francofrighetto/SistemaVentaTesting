@@ -22,24 +22,27 @@ Test sobre la clase: Producto
     Resultado esperado: false
 */
 
-/*  Testeamos un flujo normal*/
+/*Utilizamos @SpringBootApplication, que se utiliza para iniciar una aplicación Spring Boot. */
 @SpringBootApplication
 public class JoaTest {
 
-    /* Testeamos un flujo normal */
+    /*Este método de prueba crea un objeto Producto con una determinada cantidad de stock (20.0f) y comprueba que el método sinExistencia() devuelve false.  */
+    /*Este método prueba un flujo normal donde el producto tiene stock. */
     @Test
     public void testSinExistencia_FlujoNormal() {
         Producto producto = new Producto("Joa", "123", 10.0f, 20.0f, 5);
         assertFalse(producto.sinExistencia());
     }
 
-    /* Testeamos un flujo alternativo */
+    /*Este método de prueba crea un objeto Producto sin stock (0.0f) y verifica que el método sinExistencia() de la clase Producto devuelva verdadero. */
     @Test
     public void testSinExistencia_FlujoAlternativo() {
         Producto producto = new Producto("Joa", "123", 10.0f, 0.0f, 5);
         assertTrue(producto.sinExistencia());
     }
-    /* testeamos un flujo normal para existencia */
+    /* Este método de prueba crea un objeto Producto con una determinada cantidad de stock (20.0f) 
+    y comprueba que el método getExistencia() de la clase Producto devuelva el valor esperado (20.0f). 
+    Este método prueba un flujo normal donde el producto tiene stock. */
     @Test
     public void testExistencia_FlujoNormal() {
         Producto producto = new Producto("Joa", "123", 10.0f, 20.0f, 5);
