@@ -1,14 +1,9 @@
 package testingUTN.SistemaVenta;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.stream.Stream;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -68,7 +63,8 @@ public class FrancoTest {
 		productoParaVender.setPrecio(-200f);
 		assertAll("positivo",
 				() -> assertTrue(productoParaVender.getCantidad()>=0),
-				() -> assertTrue(productoParaVender.getPrecio()>=0));
+				() -> assertTrue(productoParaVender.getPrecio()>=0)
+				);
 	}
 
 	// pruea
