@@ -39,7 +39,4 @@ public class ProductoParaVender extends Producto {
     public Float precioEncuotas(int cuotas){
         return getPrecio()/cuotas;
     }
-
-    
-    
 }
