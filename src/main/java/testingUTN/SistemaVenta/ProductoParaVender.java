@@ -2,6 +2,7 @@ package testingUTN.SistemaVenta;
 
 public class ProductoParaVender extends Producto {
     private Float cantidad;
+    private Float precio;
 
     public ProductoParaVender(String nombre, String codigo, Float precio, Float existencia, Integer id, Float cantidad) {
         super(nombre, codigo, precio, existencia, id);
@@ -32,7 +33,13 @@ public class ProductoParaVender extends Producto {
     // con testing, agregue la validacion
     public void setCantidad(Float cantidad){
         if (cantidad>=0){
-            this.cantidad=cantidad;
+            this.cantidad = cantidad;
+        }
+    }
+
+    public void setPrecio(Float precio) {
+        if (precio >= 0) {
+            this.precio = precio;
         }
     }
 

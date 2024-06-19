@@ -25,15 +25,12 @@ public class ProductoVendido {
     }
 
     public Float getTotal() {
-        /*
         float total = this.cantidad * this.precio;
         if (total >= 0.0f) { 
             return total;
         } else { 
             return 0.0f ; 
         }
-        */
-        return this.cantidad * this.precio;
     }
 
     public Venta getVenta() {
